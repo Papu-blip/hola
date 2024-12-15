@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡UNA DISCULPA!</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #8B0000; /* Fondo rojo oscuro */
+            background-image: url('estrellas.jpg'); /* Imagen de fondo de estrellas */
+            background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow: hidden; /* Para evitar scroll cuando el video se mueve */
+            position: relative; /* Para posicionamiento absoluto de las estrellas */
+        }
+
+        .message-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            color: rgb(247, 11, 11); /* Color del texto en blanco para destacar sobre el fondo oscuro */
+            position: relative; /* Para asegurar que el texto esté por encima de las imágenes */
+            z-index: 2; /* Asegura que el contenido esté por encima de las estrellas */
+        }
+
+        .message-container p.disculpa {
+            color: black; /* Color negro para el mensaje de disculpa */
+        }
+
+        .message-container video {
+            width: 300px; /* Tamaño del video aumentado */
+            height: 225px; /* Tamaño del video aumentado */
+            position: absolute;
+            animation: move 10s linear infinite;
+            z-index: 1; /* Coloca el video por encima del fondo pero debajo del texto */
+        }
+
+        .star {
+            position: absolute;
+            width: 50px; /* Tamaño de la estrella */
+            height: 50px; /* Tamaño de la estrella */
+            z-index: 1; /* Coloca las estrellas por detrás del texto */
+        }
+
+        .notification {
+            display: none;
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #fff;
+            border: 2px solid #000;
+            border-radius: 5px;
+            z-index: 4; /* Asegura que la notificación esté por encima de otros elementos */
+        }
+
+        @keyframes move {
+            0% { left: 0%; top: 0%; }
+            25% { left: 75%; top: 0%; }
+            50% { left: 75%; top: 75%; }
+            75% { left: 0%; top: 75%; }
+            100% { left: 0%; top: 0%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="message-container">
+        <h2>¡PERDÓN!</h2>
+        <p class="disculpa">Quería aprovechar para disculparme por no haber respondido a tus mensajes antes.<br>
+            He tenido problemas con el whatssap, ya que no me aparecian mayoria de los chats, incluyendote.<br>
+            Valoro mucho nuestras conversaciones y me sabe mal no haber podido responderte a tiempo.</p>
+        <video id="birthdayVideo" src="papu.mp4" autoplay></video>
+    </div>
+
+    <img src="estrellas.jpg" class="star" style="top: 10%; left: 10%;">
+    <img src="estrellas.jpg" class="star" style="top: 20%; left: 70%;">
+    <img src="estrellas.jpg" class="star" style="top: 50%; left: 30%;">
+
+    <div class="notification" id="notification">
+        <p>¡Porfavor ingresa!</p>
+        <button onclick="enterPage()">Ingresar</button>
+    </div>
+
+    <script>
+        const video = document.getElementById('birthdayVideo');
+        video.onended = () => {
+            video.style.display = 'none';
+            document.getElementById('notification').style.display = 'block';
+        };
+
+        function enterPage() {
+            window.location.href = 'ingresar.html';
+        }
+    </script>
+</body>
+</html>
