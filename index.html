@@ -146,7 +146,7 @@
             <div class="bet-option" data-bet="1" onclick="selectBet(1)">Bus 1</div>
             <div class="bet-option" data-bet="2" onclick="selectBet(2)">Bus 2</div>
         </div>
-        <button onclick="placeBet()">Apostar</button>
+        <button onclick="placeBet()">Comenzar</button>
     </div>
 
     <div class="track" style="display: none;" id="raceTrack">
@@ -182,7 +182,7 @@
                 document.querySelector('.login-container').style.display = 'none';
                 document.getElementById('betContainer').style.display = 'flex';
             } else {
-                alert('Nombre incorrecto. Inténtalo de nuevo.');
+                alert('Contraseña incorrecto. Inténtalo de nuevo.');
             }
         }
 
@@ -247,9 +247,9 @@
 
                     if (winner !== null) {
                         if (userBet == winner) {
-                            alert('¡Felicidades! ¡Ganaste la apuesta!');
+                            alert('¡Eres la mejor!. ¡Ganaste!');
                         } else {
-                            alert('Oh, perdiste la apuesta. ¡Mejor suerte la próxima vez!');
+                            alert('Oh, perdiste la apuesta. ¡Jeje!');
                         }
                         window.location.href = `felicitaciones.html?winner=bus${winner}`;
                     }
